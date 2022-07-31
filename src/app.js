@@ -26,11 +26,11 @@ function formatDate(timestamp) {
   ];
 
   let day = date.getDay();
+  let dayNames = date.getDay();
+  let currDay = days[dayNames];
   let currYear = date.getFullYear();
   let currHours = date.getHours();
   let currMinutes = date.getMinutes();
-  let dayNames = date.getDay();
-  let currDay = days[dayNames];
   let currMonth = months[date.getMonth()];
   if (currHours <= 9) {
     currHours = `0${currHours}`;
@@ -63,6 +63,13 @@ function showTemperature(response) {
 
   let dateEl = document.querySelector("#full-date");
   dateEl.innerHTML = formatDate(response.data.dt * 1000);
+
+  let iconEl = document.querySelector("#icon");
+  iconEl.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconEl.setAttribute("alt", response.data.weather[0].description);
 }
 
 let apiKey = `dde9b965cc7ffe04e803055c1a479def`;
