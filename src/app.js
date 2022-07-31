@@ -1,7 +1,47 @@
-function showTemperature(response) {
-  console.log(response.data.sunset);
-  console.log(response.data.sys.sunrise);
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  let day = date.getDay();
+  let currYear = date.getFullYear();
+  let currHours = date.getHours();
+  let currMinutes = date.getMinutes();
+  let dayNames = date.getDay();
+  let currDay = days[dayNames];
+  let currMonth = months[date.getMonth()];
+  if (currHours <= 9) {
+    currHours = `0${currHours}`;
+  }
+  if (currMinutes <= 9) {
+    currMinutes = `0${currMinutes}`;
+  }
+  return `${day} ${currMonth} (${currDay}), ${currYear}. As of ${currHours}:${currMinutes}`;
+}
+
+function showTemperature(response) {
   let cityN = response.data.name;
   let countryW = response.data.sys.country;
   let header = document.querySelector("#type-c-c");
@@ -20,6 +60,9 @@ function showTemperature(response) {
   windS.innerHTML = Math.round(response.data.wind.speed);
   let humidityP = document.querySelector("#humidity");
   humidityP.innerHTML = response.data.main.humidity;
+
+  let dateEl = document.querySelector("#full-date");
+  dateEl.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 let apiKey = `dde9b965cc7ffe04e803055c1a479def`;
