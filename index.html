@@ -3,24 +3,80 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Vanilla Weather App</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-      crossorigin="anonymous"
-    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="src/style.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Vanilla Weather App</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <div class="container">
+      <div class="wrap-all">
+        <div class="weather-app">
+          <h1 id="type-c-c">hello</h1>
+          <ul>
+            <li id="full-date"></li>
+            <li id="time"></li>
+            <li id="transcription">
+              Reel feels:
+              <span id="feels"></span>°. <span id="description"></span>.
+            </li>
+          </ul>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="clearfix weather-element">
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                  id="icon"
+                  class="float-left"
+                />
+                <div class="float-left">
+                  <strong id="temp-result">22</strong>
+                  <span class="units">℃ | <a href="#">℉ </a></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <ul>
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind: <span id="wind"></span>km/h</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <small>
+          © 2022 Made by
+          <a
+            href="https://www.instagram.com/psychologynia_ok/"
+            alt="instagram"
+            class="contact"
+            target="_blank"
+          >
+            Oksana Kostiuk 🌞</a
+          >
+          and is
+          <a
+            href="https://github.com/oksana-ukr/Vanilla-weather-app-plus"
+            alt="github"
+            class="github"
+            target="_blank"
+          >
+            open-sourced on Github</a
+          >
+        </small>
+      </div>
+    </div>
     <script src="src/app.js"></script>
   </body>
 </html>
