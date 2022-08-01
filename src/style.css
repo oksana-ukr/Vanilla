@@ -58,6 +58,16 @@ li:first-letter {
   top: -10px;
 }
 
+.weather-element .active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+
+.weather-element .active:hover {
+  text-decoration: none;
+}
+
 #transcription {
   font-weight: 700;
   text-transform: capitalize;
