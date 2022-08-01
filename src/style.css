@@ -1,5 +1,11 @@
 body {
   font-family: "Roboto", sans-serif;
+  color: #2b2b2b;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(254, 255, 165) 0%,
+    rgb(255, 232, 182) 90%
+  );
 }
 
 body {
@@ -7,10 +13,10 @@ body {
 }
 
 h1 {
-  color: rgba(11, 11, 234, 0.915);
-  margin-bottom: 20px;
+  color: white;
+  margin-bottom: 5px;
   font-size: 30px;
-  line-height: 60px;
+  line-height: 30px;
 }
 
 ul {
@@ -36,11 +42,27 @@ li:first-letter {
 }
 
 .weather-app {
+  color: white;
   max-width: 600px;
   margin: 30px auto;
   padding: 30px;
-  border: 7px dotted #2028c2;
+  border: 3px dotted #1b4de3;
   border-radius: 30px;
+  background-image: url("../images/clouds.jpg");
+}
+
+.wrap-top {
+  background-color: rgba(240, 255, 255, 0.114);
+}
+
+.color-button {
+  background-color: #1b4de3;
+  color: white;
+}
+
+.color-button:hover {
+  background-color: #2b3ee2;
+  color: white;
 }
 
 .weather-element img {
@@ -49,17 +71,18 @@ li:first-letter {
 
 .weather-element strong {
   font-size: 55px;
-  color: #2028c2;
+  color: #1b4de3;
 }
 
 .weather-element .units {
   position: relative;
   font-size: 15px;
   top: -30px;
+  color: white;
 }
 
 .weather-element .active {
-  color: black;
+  color: white;
   cursor: default;
   text-decoration: none;
 }
@@ -68,6 +91,49 @@ li:first-letter {
   text-decoration: none;
 }
 
+.weather-forecast {
+  color: #1b4de3;
+  margin: 3px;
+  text-align: center;
+}
+
+.hover:hover {
+  color: #1b4de3;
+  background-color: rgba(255, 255, 0, 0.115);
+  border-radius: 10px;
+}
+
+.weather-forecast-date {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2b2b2b;
+}
+
+.weather-forecast-temperatures {
+  font-size: 15px;
+}
+
+.weather-forecast-min {
+  opacity: 0.9;
+}
+
+.contact,
+.github {
+  color: #1b4de3;
+}
+
+#temp-result {
+  color: white;
+}
+
+#fahrenheit-link {
+  color: white;
+  text-decoration: none;
+}
+
+#full-date {
+  color: white;
+}
 #transcription {
   font-weight: 700;
   text-transform: capitalize;
