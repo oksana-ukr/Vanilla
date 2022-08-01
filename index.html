@@ -23,6 +23,23 @@
     <div class="container">
       <div class="wrap-all">
         <div class="weather-app">
+          <form id="search-form" class="mb-3">
+            <div class="input-group">
+              <input
+                type="search"
+                id="city-input"
+                class="form-control"
+                placeholder="Enter a city..."
+                aria-label=""
+                aria-describedby="basic-addon1"
+                autocomplete="off"
+              />
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">Search</button>
+              </div>
+            </div>
+          </form>
+
           <h1 id="type-c-c"></h1>
           <ul>
             <li id="full-date">As of</li>

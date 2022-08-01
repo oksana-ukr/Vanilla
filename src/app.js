@@ -72,7 +72,20 @@ function showTemperature(response) {
   iconEl.setAttribute("alt", response.data.weather[0].description);
 }
 
-let apiKey = `dde9b965cc7ffe04e803055c1a479def`;
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Odesa&appid=${apiKey}&units=metric`;
+function search(city) {
+  let apiKey = `dde9b965cc7ffe04e803055c1a479def`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
 
-axios.get(apiUrl).then(showTemperature);
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#city-input");
+  search(cityInput.value);
+  //cityInput.innerHTML = cityInput.value;
+}
+
+search("Odesa");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
