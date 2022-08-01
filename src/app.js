@@ -38,6 +38,7 @@ function formatDate(timestamp) {
   if (currMinutes <= 9) {
     currMinutes = `0${currMinutes}`;
   }
+
   return `${day} ${currMonth} (${currDay}), ${currYear}. As of ${currHours}:${currMinutes}`;
 }
 
