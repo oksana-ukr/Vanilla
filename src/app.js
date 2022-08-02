@@ -42,7 +42,8 @@ function formatDate(timestamp) {
   return `${day} ${currMonth} (${currDay}), ${currYear}. As of ${currHours}:${currMinutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
 
   let dayForecast = [
@@ -79,6 +80,14 @@ function displayForecast() {
   console.log(forecastHTML);
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = `dde9b965cc7ffe04e803055c1a479def`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showTemperature(response) {
   let cityN = response.data.name;
   let countryW = response.data.sys.country;
@@ -111,6 +120,8 @@ function showTemperature(response) {
 
   celsiusTemperature = response.data.main.temp;
   temperatureEl.innerHTML = Math.round(celsiusTemperature);
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -158,4 +169,3 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
 search("Odesa");
-displayForecast();
