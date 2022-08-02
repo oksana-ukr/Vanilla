@@ -37,13 +37,13 @@ li:first-letter {
 }
 
 .wrap-all {
-  max-width: 600px;
+  max-width: 700px;
   margin: 30px auto;
 }
 
 .weather-app {
   color: white;
-  max-width: 600px;
+  max-width: 700px;
   margin: 30px auto;
   padding: 30px;
   border: 3px dotted #1b4de3;
@@ -104,13 +104,13 @@ li:first-letter {
 }
 
 .weather-forecast-date {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   color: #2b2b2b;
 }
 
 .weather-forecast-temperatures {
-  font-size: 15px;
+  font-size: 25px;
 }
 
 .weather-forecast-min {

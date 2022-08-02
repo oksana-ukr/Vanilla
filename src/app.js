@@ -42,6 +42,43 @@ function formatDate(timestamp) {
   return `${day} ${currMonth} (${currDay}), ${currYear}. As of ${currHours}:${currMinutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let dayForecast = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let forecastHTML = `<div class="row hover">`;
+  dayForecast.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="shadow-sm p-2 mb-3 bg-body rounded">
+       <div class="col border-bottom">
+          <div class="weather-forecast-date">${day}</div>
+          <img
+            src="http://openweathermap.org/img/wn/04d@2x.png"
+            alt=""
+            width="37"
+          />
+          <div class="weather-forecast-temperatures">
+            <span class="weather-forecast-max">25° /</span>
+            <span class="weather-forecast-min">15°</span>
+          </div>
+        </div>
+     </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 function showTemperature(response) {
   let cityN = response.data.name;
   let countryW = response.data.sys.country;
@@ -121,3 +158,4 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
 search("Odesa");
+displayForecast();

@@ -46,11 +46,12 @@
 
         <div class="weather-app">
           <div class="container shadow-none mb-3 rounded wrap-top">
-          <h1 id="type-c-c"></h1><span id="full-date"></span>
+            <h1 id="type-c-c"></h1>
+            <span id="full-date"></span>
           </div>
 
-           <ul>
-           <li id="transcription">
+          <ul>
+            <li id="transcription">
               Reel feels:
               <span id="feels"></span>°. <span id="description"></span>.
             </li>
@@ -79,61 +80,32 @@
           </div>
         </div>
 
-        <div class="weather-forecast shadow-lg p-3 mb-5 bg-body rounded-5">
-          <div class="shadow-sm p-2 mb-3 bg-body rounded">
-            <div class="row hover">
-              <div class="col-2">
-                <div class="weather-forecast-date">Monday</div>
-                <img
-                  src="http://openweathermap.org/img/wn/04d@2x.png"
-                  alt=""
-                  width="37"
-                />
-                <div class="weather-forecast-temperatures">
-                  <span class="weather-forecast-max">18°</span>
-                  <span class="weather-forecast-min">12°</span>
-                </div>
-              </div>
-
-              <div class="col-2 border-start">
-                <div class="weather-forecast-date">Tuesday</div>
-                <img
-                  src="http://openweathermap.org/img/wn/04d@2x.png"
-                  alt=""
-                  width="37"
-                />
-                <div class="weather-forecast-temperatures">
-                  <span class="weather-forecast-max">18°</span>
-                  <span class="weather-forecast-min">12°</span>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div
+          class="weather-forecast shadow-lg p-3 mb-5 bg-body rounded-5"
+          id="forecast"
+        ></div>
+          <small>
+            © 2022 Made by
+            <a
+              href="https://www.instagram.com/psychologynia_ok/"
+              alt="instagram"
+              class="contact"
+              target="_blank"
+            >
+              Oksana Kostiuk 🌞</a
+            >
+            and is
+            <a
+              href="https://github.com/oksana-ukr/Vanilla"
+              alt="github"
+              class="github"
+              target="_blank"
+            >
+              open-sourced on Github</a
+            >
+          </small>
         </div>
-      
-
-      <small>
-        © 2022 Made by
-        <a
-          href="https://www.instagram.com/psychologynia_ok/"
-          alt="instagram"
-          class="contact"
-          target="_blank"
-        >
-          Oksana Kostiuk 🌞</a
-        >
-        and is
-        <a
-          href="https://github.com/oksana-ukr/Vanilla"
-          alt="github"
-          class="github"
-          target="_blank"
-        >
-          open-sourced on Github</a
-        >
-      </small>
-    </div>
-    </div>
+      </div>
     </div>
 
     <script src="src/app.js"></script>
