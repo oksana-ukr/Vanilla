@@ -46,13 +46,13 @@ function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
 
   let dayForecast = [
-    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
     "Saturday",
+    "Sunday",
   ];
   let forecastHTML = `<div class="row hover">`;
   dayForecast.forEach(function (day) {
