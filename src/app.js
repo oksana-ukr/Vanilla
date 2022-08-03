@@ -25,13 +25,14 @@ function formatDate(timestamp) {
     "December",
   ];
 
-  let day = date.getDay();
+  let day = date.getDate();
   let dayNames = date.getDay();
   let currDay = days[dayNames];
   let currYear = date.getFullYear();
   let currHours = date.getHours();
   let currMinutes = date.getMinutes();
   let currMonth = months[date.getMonth()];
+
   if (currHours <= 9) {
     currHours = `0${currHours}`;
   }
@@ -55,6 +56,20 @@ function formatDay(timestamp) {
     "Saturday",
   ];
   return `${days[day]}`;
+}
+
+function formatDaySun(timestamp) {
+  let date = new Date(timestamp);
+  let sunHours = date.getHours();
+  let sunMinutes = date.getMinutes();
+
+  if (sunHours <= 12) {
+    sunHours = `0${sunHours}`;
+  }
+  if (sunMinutes <= 9) {
+    sunMinutes = `0${sunMinutes}`;
+  }
+  return `${sunHours}:${sunMinutes}`;
 }
 
 function displayForecast(response) {
@@ -82,10 +97,10 @@ function displayForecast(response) {
           <div class="weather-forecast-temperatures">
             <span class="weather-forecast-max">${Math.round(
               forecastDay.temp.max
-            )}° </span>
+            )}℃ </span>
             <span class="weather-forecast-min">${Math.round(
               forecastDay.temp.min
-            )}°</span>
+            )}℃</span>
           </div>
         </div>
      </div>`;
@@ -107,26 +122,26 @@ function showTemperature(response) {
   let cityN = response.data.name;
   let countryW = response.data.sys.country;
   let header = document.querySelector("#type-c-c");
-  header.innerHTML = `${cityN}, ${countryW}`;
-
   let temperatureEl = document.querySelector("#temp-result");
-  temperatureEl.innerHTML = Math.round(response.data.main.temp);
-
   let realFeels = document.querySelector("#feels");
-  realFeels.innerHTML = Math.round(response.data.main.feels_like);
-
   let descriptionT = document.querySelector("#description");
-  descriptionT.innerHTML = response.data.weather[0].description;
-
   let windS = document.querySelector("#wind");
-  windS.innerHTML = Math.round(response.data.wind.speed);
   let humidityP = document.querySelector("#humidity");
-  humidityP.innerHTML = response.data.main.humidity;
-
   let dateEl = document.querySelector("#full-date");
-  dateEl.innerHTML = formatDate(response.data.dt * 1000);
-
+  let sunriseUp = document.querySelector("#sunrise");
+  let sunsetDown = document.querySelector("#sunset");
   let iconEl = document.querySelector("#icon");
+
+  header.innerHTML = `${cityN}, ${countryW}`;
+  temperatureEl.innerHTML = Math.round(response.data.main.temp);
+  realFeels.innerHTML = Math.round(response.data.main.feels_like);
+  descriptionT.innerHTML = response.data.weather[0].description;
+  windS.innerHTML = Math.round(response.data.wind.speed);
+  humidityP.innerHTML = response.data.main.humidity;
+  dateEl.innerHTML = formatDate(response.data.dt * 1000);
+  sunriseUp.innerHTML = formatDaySun(response.data.sys.sunrise * 1000);
+  sunsetDown.innerHTML = formatDaySun(response.data.sys.sunset * 1000);
+
   iconEl.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -178,9 +193,9 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemp);
-
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
+
+celsiusLink.addEventListener("click", displayCelsiusTemp);
 fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
 search("Odesa");
